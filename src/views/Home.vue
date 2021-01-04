@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <h1>{{ title }}</h1>
-    <input type="text" v-model="searchTerm">
+    <input type="text" placeholder="Enter street name" v-model="searchTerm">
 
 
  <div class="container">
@@ -41,7 +40,6 @@ import Vue2Filters from "vue2-filters";
 export default {
   data: function () {
     return {
-      title: "(ur)in trouble",
       tickets: [],
       fields: ["date", "street_no", "direction", "street_name"],
       searchTerm: "",
