@@ -1,10 +1,15 @@
 <template>
   <div class="home">
+
+    <h2> Filter By Street Name </h2>
     <input type="text" placeholder="Enter street name" v-model="searchTerm">
 
 
- <div class="container">
-  <div v-for="ticket in filterBy(tickets, searchTerm, 'street_name')">
+    <div class="container">
+    <!-- <div>  
+      <b-table hover :items="tickets" :fields="fields"></b-table>
+   </div> --> 
+  <div>
 
   <table class="table">
     <thead>
@@ -16,7 +21,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr v-for="ticket in filterBy(tickets, searchTerm, 'street_name')">
           <td>{{ ticket.date  }}</td>
           <td>{{ ticket.street_no }} </td>
           <td>{{ ticket.direction  }} </td>
@@ -43,6 +48,9 @@ export default {
       tickets: [],
       fields: ["date", "street_no", "direction", "street_name"],
       searchTerm: "",
+      filters: {
+        streetName: "",
+      },
     };
   },
   created: function () {
